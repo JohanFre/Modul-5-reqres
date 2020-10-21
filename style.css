@@ -1,0 +1,33 @@
+body {
+  background-image: linear-gradient(90deg, #4491ae, transparent);
+  width: auto;
+  display: grid;
+  grid-template-columns: [first] 25% [line2] 55% [line3] 20%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.hide {
+  display: none;
+}
+
+#loginForm {
+  grid-column: 1;
+  padding: 45px;
+}
+.usersListPlacement {
+  padding: 60px;
+  align-content: center;
+  grid-column: 3;
+}
+.userInfoContainer {
+  margin: -175px;
+  grid-column: 2;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+#loginErrorMessage {
+  grid-column: 1;
+  margin-left: 42px;
+}
