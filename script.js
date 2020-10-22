@@ -4,6 +4,7 @@ const usersListEl = document.querySelector(".usersList");
 const apiUrl = "https://reqres.in/";
 const userInfoContainer = document.querySelector(".userInfoContainer");
 
+// Fetching login API with "submit" button.
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -16,17 +17,19 @@ formEl.addEventListener("submit", (e) => {
     }),
   }).then((res) =>
     res.json().then((jsonData) => {
+      // Checks if logininformation is correct. Displaying "errormessage" if not correct.
       if (jsonData.error) {
         const errorMessageEl = document.querySelector("#loginErrorMessage");
         errorMessageEl.innerText = jsonData.error;
         errorMessageEl.classList.remove("hide");
       } else {
+        // If login is successful - Displays the "show users button".
         showUsersButtonEl.classList.remove("hide");
       }
     })
   );
 });
-
+// Fetches user information and display names on list-item.
 showUsersButtonEl.addEventListener("click", (e) => {
   fetch(apiUrl + "api/users")
     .then((res) => res.json())
@@ -41,6 +44,7 @@ showUsersButtonEl.addEventListener("click", (e) => {
     });
 });
 
+// Clicking on displayed name -- Fetches full information and displays it.
 usersListEl.addEventListener("click", (e) => {
   let userid = e.target.dataset.userid;
 
